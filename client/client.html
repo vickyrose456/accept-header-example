@@ -50,6 +50,7 @@
         const obj = JSON.parse(xhr.response);
         h1.textContent = `Name: ${obj.name}`;
         p.textContent = `Age: ${obj.age}`;
+          
       } else if (type === 'text/xml') {
         const name = xhr.responseXML.querySelector('name').textContent;
         const age = xhr.responseXML.querySelector('age').textContent;
@@ -89,7 +90,7 @@
       const sendJSON = () => sendAjax('/cats', 'application/json');
       const sendXML = () => sendAjax('/cats', 'text/xml');
 
-      jsonButton.addEventListener('click', sendAjax);
+      jsonButton.addEventListener('click', sendJSON);
       xmlButton.addEventListener('click', sendXML);
 
     };

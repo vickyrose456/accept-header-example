@@ -14,12 +14,11 @@ const getIndex = (request, response) => {
 
 const getCats = (request, response, acceptedTypes) => {
   const cat = {
-    name: "Mr Meow",
+    name: 'Mr Meow',
     age: 5,
   };
 
-
-  if(acceptedTypes[0] === 'text/xml'){
+  if (acceptedTypes[0] === 'text/xml') {
     let responseXML = '<response>';
     responseXML = `${responseXML} <name>${cat.name}</name>`;
     responseXML = `${responseXML} <age>${cat.age}</age>`;
@@ -28,7 +27,7 @@ const getCats = (request, response, acceptedTypes) => {
     return respond(request, response, responseXML, 'text/xml');
   }
 
-  //need to turn into a JSON string
+  // need to turn into a JSON string
   const catString = JSON.stringify(cat);
 
   return respond(request, response, catString, 'application/json');
